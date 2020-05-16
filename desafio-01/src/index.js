@@ -1,7 +1,7 @@
 const express = require("express");
 const routes = require("./routes.js");
-let counter = 0;
 const server = express();
+let counter = 0;
 
 server.use((req, res, next) => {
   if (req) {

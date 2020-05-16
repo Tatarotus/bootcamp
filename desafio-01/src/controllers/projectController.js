@@ -30,7 +30,7 @@ module.exports = {
           return project;
         }
       });
-      return res.sendStatus(200);
+      return res.json({ updataStatus: "success" });
     } catch (err) {
       console.log(err);
     }
@@ -54,7 +54,6 @@ module.exports = {
     try {
       const { id } = req.params;
       const newProjects = projects.filter(project => project.id !== id);
-      res.json(newProjects);
       projects.splice(0, projects.length, ...newProjects);
       return res.json(projects);
     } catch (err) {

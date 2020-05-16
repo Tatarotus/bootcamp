@@ -4,11 +4,11 @@ const projectController = require("./controllers/projectController.js");
 
 function checkId(req, res, next) {
   const { id } = req.params;
-  projects.map(project => {
-    if (project.id === id) {
+  for (let i = 0; i < projects.length; i++) {
+    if (projects[i].id === id) {
       return next();
     }
-  });
+  }
   return res.json({ error: "Unmatched ID" });
 }
 routes.get("/projects/", projectController.index);
